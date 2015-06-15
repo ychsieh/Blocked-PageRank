@@ -1,1 +1,4 @@
 # Blocked-PageRank
+It is relatively straightforward to code PageRank in MapReduce using a direct node-by-node approach, but the cost of this approach is rather high. To improve the convergence rate, we mimic Blocked Matrix Multiplication, in which we reduced the I/O cost of a MapReduce job by doing nontrivial computation in the reduce steps. In this case the performance improvement comes not from reducing the I/O cost of an individual MapReduce pass, but from reducing the number of passes required to achieve convergence.
+
+- Developed a system that compute PageRank for a reasonably large web graph with 685230 nodes and 7600595 edges- Reduced the number of rounds of MapReduce from 54 to 7 that is required to achieve a relative residual error below 0.1%- Improved the convergence rate inside a single block by applying Gauss-Seidel iteration to further shorten total computation time
